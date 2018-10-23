@@ -5,11 +5,16 @@
 </head>
 <body>
     <h1>Results</h1>
-    @foreach (var item in Model)
-    {
-        <h2>@item.Name</h2>
-        <h3>@item.Year</h3>
-    }
-
     <a href="@Url.Action("Index")">Home</a>
+    <ul>
+        <li><span>Name</span><span>Title</span><span>Year</span></li>
+        @foreach (var item in Model)
+        {
+            <li>
+                <span>@item.Name</span>
+                <span>@item.Title</span>
+                <span>@item.Year</span>
+            </li>
+        }
+    </ul>
 </body>
