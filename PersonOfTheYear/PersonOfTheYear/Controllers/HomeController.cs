@@ -28,7 +28,7 @@ namespace PersonOfTheYear.Controllers
         {
             //Get List of persons
             List<Person> persons = Person.GetPersons(startYear, endYear);
-            return View(persons[0]);
+            return View(persons);
         }
 
 

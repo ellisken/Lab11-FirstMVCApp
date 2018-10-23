@@ -1,5 +1,8 @@
-﻿@model PersonOfTheYear.Models.Person
+﻿@model List<PersonOfTheYear.Models.Person>
 
 <h1>Results</h1>
-<h2>@Model.Name</h2>
-<h3>@Model.Year</h3>
+@foreach(var item in Model)
+{
+    <h2>@item.Name</h2>
+    <h3>@item.Year</h3>
+}
