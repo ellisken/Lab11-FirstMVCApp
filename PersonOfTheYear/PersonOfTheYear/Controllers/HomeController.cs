@@ -8,9 +8,22 @@ namespace PersonOfTheYear.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        //Loads initial index page with form
+        [HttpGet]
+        public ViewResult Index()
         {
             return View();
         }
+
+        //Processes form submission
+        //[HttpPost]
+        //public IActionResult Index(int startYear, int endYear)
+        //{
+        //    //Redirect to results view action
+        //    return RedirectToAction("Result", new { startYear, endYear });
+        //}
+
+
+
     }
 }
