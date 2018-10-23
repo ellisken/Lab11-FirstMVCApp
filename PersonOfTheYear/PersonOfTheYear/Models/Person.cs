@@ -28,7 +28,7 @@ namespace PersonOfTheYear.Models
             string newPath = Path.GetFullPath(Path.Combine(path, @"wwwroot\personOfTheYear.csv"));//Finds location of datafile and combines with initial path
             string[] myFile = File.ReadAllLines(newPath);//Reads in all lines of the data file and stores as a string array
 
-            for (int i = 1; i < myFile.Length; i++)//For each string in the myFile array
+            for (int i = 1; i < myFile.Length; i++)//For each string in the myFile array, skipping the top row (column names)
             {
                 string[] fields = myFile[i].Split(',');//Separate the "fields" in the string by commas (since the file is CSV), stores in string array called "fields"
                 people.Add(new Person //Instantiate a new PersonOfTheYear object
