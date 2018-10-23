@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using PersonOfTheYear.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,13 +16,20 @@ namespace PersonOfTheYear.Controllers
             return View();
         }
 
-        //Processes form submission
-        //[HttpPost]
-        //public IActionResult Index(int startYear, int endYear)
-        //{
-        //    //Redirect to results view action
-        //    return RedirectToAction("Result", new { startYear, endYear });
-        //}
+        //Passes form info to Result() to get filtered list
+        [HttpPost]
+        public IActionResult Index(int startYear, int endYear)
+        {
+            //Redirect to results view action
+            return RedirectToAction("Result", new { startYear, endYear });
+        }
+
+        public ViewResult Result(int startYear, int endYear)
+        {
+            //Get List of persons
+            List<Person> persons = Person.GetPersons(startYear, endYear);
+            return View(persons);
+        }
 
 
 

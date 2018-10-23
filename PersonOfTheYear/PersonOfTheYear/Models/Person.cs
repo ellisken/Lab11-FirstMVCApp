@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonOfTheYear.Models
 {
-    public class PersonOfTheYear
+    public class Person
     {
         public int Year { get; set; }
         public string Honor { get; set; }
@@ -21,9 +21,9 @@ namespace PersonOfTheYear.Models
         //Static method that returns a List of PersonOfTheYear objects.Takes two
         //parameters: startYear and endYear used for filtering the list of all people
         //to just those whose years fall within the desired range
-        public static List<PersonOfTheYear> GetPersons(int startYear, int endYear)
+        public static List<Person> GetPersons(int startYear, int endYear)
         {
-            List<PersonOfTheYear> people = new List<PersonOfTheYear>(); //Create new List to store PersonOfTheYear objects
+            List<Person> people = new List<Person>(); //Create new List to store PersonOfTheYear objects
             string path = Environment.CurrentDirectory;//Sets path variable to current directory
             string newPath = Path.GetFullPath(Path.Combine(path, @"wwwroot\personOfTheYear.csv"));//Finds location of datafile and combines with initial path
             string[] myFile = File.ReadAllLines(newPath);//Reads in all lines of the data file and stores as a string array
@@ -31,7 +31,7 @@ namespace PersonOfTheYear.Models
             for (int i = 1; i < myFile.Length; i++)//For each string in the myFile array
             {
                 string[] fields = myFile[i].Split(',');//Separate the "fields" in the string by commas (since the file is CSV), stores in string array called "fields"
-                people.Add(new PersonOfTheYear //Instantiate a new PersonOfTheYear object
+                people.Add(new Person //Instantiate a new PersonOfTheYear object
                 {
                     Year = Convert.ToInt32(fields[0]), //Sets the year, converts string to int
                     Honor = fields[1], //Sets the person's honor
@@ -46,7 +46,7 @@ namespace PersonOfTheYear.Models
             }
 
             //Lambda function filters the listofPeople to be only people whose years fall between startYear and endYear, inclusive
-            List<PersonOfTheYear> listofPeople = people.Where(p => (p.Year >= startYear) && (p.Year <= endYear)).ToList();
+            List<Person> listofPeople = people.Where(p => (p.Year >= startYear) && (p.Year <= endYear)).ToList();
             return listofPeople; //Return filtered list of people
         }
     }
