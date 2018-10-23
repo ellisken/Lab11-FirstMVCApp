@@ -18,9 +18,14 @@ namespace PersonOfTheYear.Models
         public string Category { get; set; }
         public string Context { get; set; }
 
-        //Static method that returns a List of PersonOfTheYear objects.Takes two
-        //parameters: startYear and endYear used for filtering the list of all people
-        //to just those whose years fall within the desired range
+        /// <summary>
+        /// Static method that returns a List of PersonOfTheYear objects.Takes two
+        /// parameters: startYear and endYear used for filtering the list of all people
+        /// to just those whose years fall within the desired range
+        /// </summary>
+        /// <param name="startYear">Starting year in the range</param>
+        /// <param name="endYear">Ending year in the range</param>
+        /// <returns>A list of people of the year between startYear and endYear</returns>
         public static List<Person> GetPersons(int startYear, int endYear)
         {
             List<Person> people = new List<Person>(); //Create new List to store PersonOfTheYear objects
