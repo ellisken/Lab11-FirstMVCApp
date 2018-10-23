@@ -1,8 +1,15 @@
 ﻿@model List<PersonOfTheYear.Models.Person>
 
-<h1>Results</h1>
-@foreach(var item in Model)
-{
-    <h2>@item.Name</h2>
-    <h3>@item.Year</h3>
-}
+<head>
+    <link href="~/StyleSheet.css" />
+</head>
+<body>
+    <h1>Results</h1>
+    @foreach (var item in Model)
+    {
+        <h2>@item.Name</h2>
+        <h3>@item.Year</h3>
+    }
+
+    <a href="@Url.Action("Index")">Home</a>
+</body>
