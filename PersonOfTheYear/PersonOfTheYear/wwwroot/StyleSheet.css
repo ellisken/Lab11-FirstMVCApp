@@ -1,4 +1,4 @@
-main {
+main.index {
     border: 10px solid red;
     width: 500px;
     margin: auto;
@@ -8,10 +8,13 @@ main {
     text-align: center;
 }
 
-#mainTitle{
-    color: red;
-    font-size: 150px;
-    font-family: serif;
+main.results {
+    border: 10px solid red;
+    width: 680px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 input{
@@ -31,3 +34,36 @@ button{
     border: 2px solid black;
     background-color: red;
 }
+
+table, th, td {
+    margin-top: 20px;
+    border: 2px solid red;
+    border-collapse: collapse;
+    padding: 15px;
+}
+
+th {
+    text-align: left;
+}
+
+table tr:nth-child(even) {
+    background-color: red;
+}
+
+table tr:nth-child(odd) {
+    background-color: white;
+}
+
+#mainTitle{
+    color: red;
+    font-size: 150px;
+    font-family: serif;
+}
+
+#resultTitle{
+    font-size: 40px;
+    font-family: serif;
+}
+
+
+

@@ -1,20 +1,23 @@
 ﻿@model List<PersonOfTheYear.Models.Person>
 
 <head>
-    <link href="~/StyleSheet.css" />
+    <link href="~/StyleSheet.css" rel="stylesheet"/>
 </head>
 <body>
-    <h1>Results</h1>
-    <a href="@Url.Action("Index")">Home</a>
-    <ul>
-        <li><span>Name</span><span>Title</span><span>Year</span></li>
-        @foreach (var item in Model)
-        {
-            <li>
-                <span>@item.Name</span>
-                <span>@item.Title</span>
-                <span>@item.Year</span>
-            </li>
-        }
-    </ul>
+    <main class="results">
+        <h1 id="resultTitle">Results</h1>
+        <a href="@Url.Action("Index")">Home</a>
+        <table>
+            <tr><th>Name</th><th>Title</th><th>Year</th></tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Title</td>
+                    <td>@item.Year</td>
+                </tr>
+            }
+        </table>
+    </main>
+
 </body>
